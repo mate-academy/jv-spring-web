@@ -5,6 +5,12 @@ public class UserResponseDto {
     private String name;
     private String lastName;
 
+    public UserResponseDto(Long id,String name, String lastName) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+    }
+
     public Long getId() {
         return id;
     }
