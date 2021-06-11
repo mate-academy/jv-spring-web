@@ -7,6 +7,7 @@ import mate.academy.spring.model.dto.UserResponseDto;
 import mate.academy.spring.service.UserMapper;
 import mate.academy.spring.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
@@ -23,15 +24,15 @@ public class UserController {
     }
 
     @GetMapping
-    List<UserResponseDto> getAll() {
+    public List<UserResponseDto> getAll() {
         return userService.listUsers().stream()
                 .map(userMapper::parse)
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
-    public UserResponseDto get(Long userId) {
-        return userMapper.parse(userService.get(userId));
+    public UserResponseDto get(@PathVariable Long id) {
+        return userMapper.parse(userService.get(id));
     }
 
     @GetMapping("/inject")
