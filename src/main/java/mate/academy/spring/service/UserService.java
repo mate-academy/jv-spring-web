@@ -8,5 +8,5 @@ public interface UserService {
 
     User get(Long id);
 
-    List<User> listUsers();
+    List<User> getAllUsers();
 }
