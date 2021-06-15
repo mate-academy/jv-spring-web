@@ -1,6 +1,7 @@
 package mate.academy.spring.dao;
 
 import java.util.List;
+import java.util.Optional;
 import mate.academy.spring.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -39,8 +40,17 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> getAll() {
         try (Session session = sessionFactory.openSession()) {
-            return session.createQuery("FROM User", User.class)
+            return session.createQuery("from User", User.class)
                     .getResultList();
+        } catch (Exception e) {
+            throw new RuntimeException("User not found", e);
+        }
+    }
+
+    @Override
+    public Optional<User> getById(Long id) {
+        try (Session session = sessionFactory.openSession()) {
+            return Optional.ofNullable(session.get(User.class, id));
         } catch (Exception e) {
             throw new RuntimeException("User not found", e);
         }
