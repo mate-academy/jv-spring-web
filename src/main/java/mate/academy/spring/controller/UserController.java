@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@ResponseBody
 public class UserController {
     private final UserService userService;
     private final UserMapper userMapper;
@@ -23,13 +24,11 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @ResponseBody
     @GetMapping("/users/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
         return userMapper.mapFromUserToDto(userService.get(userId));
     }
 
-    @ResponseBody
     @GetMapping("/users/")
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
@@ -37,7 +36,6 @@ public class UserController {
                 .collect(Collectors.toList());
     }
 
-    @ResponseBody
     @GetMapping("/users/inject")
     public String injectMockData() {
         User bobRoss = new User("Bob", "Ross");
