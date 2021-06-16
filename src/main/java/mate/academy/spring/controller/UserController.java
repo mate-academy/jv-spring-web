@@ -1,5 +1,7 @@
 package mate.academy.spring.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
 import mate.academy.spring.service.UserService;
@@ -9,9 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 public class UserController {
