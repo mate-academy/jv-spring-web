@@ -4,7 +4,7 @@ import java.util.List;
 import mate.academy.spring.model.dto.UserResponseDto;
 
 public interface UserController {
-    String inject();
+    String injectUsers();
 
     UserResponseDto get(Long userId);
 

@@ -24,7 +24,7 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @GetMapping("/inject")
-    public String inject() {
+    public String injectUsers() {
         User bob = new User("Bob", "Smith");
         User alice = new User("Alice", "Valentine");
         User john = new User("John", "Markus");
