@@ -19,6 +19,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User get(Long userId) {
+        return userDao.get(userId).orElseThrow();
+    }
+
+    @Override
     public List<User> listUsers() {
         return userDao.getAll();
     }
