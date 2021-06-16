@@ -42,7 +42,7 @@ public class UserControllerImpl implements UserController {
     }
 
     @Override
-    @GetMapping("/")
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.listUsers()
                 .stream()
