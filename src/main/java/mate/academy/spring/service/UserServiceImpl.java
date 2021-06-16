@@ -19,7 +19,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> listUsers() {
+    public List<User> getAllUsers() {
         return userDao.getAll();
+    }
+
+    @Override
+    public User get(Long userId) {
+        return userDao.findById(userId)
+                .orElseThrow(() -> new RuntimeException("Can't find user with id - "
+                        + userId + " in DB."));
     }
 }
