@@ -9,5 +9,5 @@ public interface UserDao {
 
     List<User> getAll();
 
-    Optional<User> get(Long id);
+    User get(Long id);
 }
