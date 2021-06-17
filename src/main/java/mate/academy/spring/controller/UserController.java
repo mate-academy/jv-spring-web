@@ -24,13 +24,13 @@ public class UserController {
 
     @GetMapping("/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
-        return userMapper.parse(userService.get(userId));
+        return userMapper.parseToDto(userService.get(userId));
     }
 
     @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
-                .map(userMapper::parse)
+                .map(userMapper::parseToDto)
                 .collect(Collectors.toList());
     }
 
