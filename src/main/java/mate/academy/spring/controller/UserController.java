@@ -23,11 +23,6 @@ public class UserController {
         this.userDtoMapper = userDtoMapper;
     }
 
-    @GetMapping("/index")
-    public String index() {
-        return "index";
-    }
-
     @GetMapping("/{userId}")
     public UserResponseDto getById(@PathVariable Long userId) {
         return userDtoMapper.parseToDto(userService.get(userId));
