@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @Configuration
 @ComponentScan("mate.academy.spring.controller")
-public class WebApplicationConfig implements WebMvcConfigurer {
+public class WebAppConfig implements WebMvcConfigurer {
     @Bean
     public InternalResourceViewResolver resolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
