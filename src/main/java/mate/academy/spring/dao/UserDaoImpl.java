@@ -52,7 +52,7 @@ public class UserDaoImpl implements UserDao {
         try (Session session = sessionFactory.openSession()) {
             return Optional.ofNullable(session.get(User.class, id));
         } catch (Exception e) {
-            throw new RuntimeException("User not found " + id, e);
+            throw new RuntimeException("Can't get user by id: " + id, e);
         }
     }
 }
