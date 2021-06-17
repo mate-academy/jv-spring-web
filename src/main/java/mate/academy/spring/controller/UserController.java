@@ -31,7 +31,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public UserResponceDto get(@PathVariable Long id) {
-        return userMapper.parse(userService.get(id));
+        return userMapper.parseToDto(userService.get(id));
     }
 
     @GetMapping("/inject")
