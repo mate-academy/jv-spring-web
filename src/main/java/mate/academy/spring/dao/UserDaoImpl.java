@@ -42,7 +42,7 @@ public class UserDaoImpl implements UserDao {
         try (Session session = sessionFactory.openSession()) {
             return Optional.of(session.get(User.class, id));
         } catch (Exception e) {
-            throw new RuntimeException("User by id: " + id + " not found", e);
+            throw new RuntimeException("User by id: " + id + " could not be retrieved from DB", e);
         }
     }
 
@@ -52,7 +52,7 @@ public class UserDaoImpl implements UserDao {
             return session.createQuery("FROM User", User.class)
                     .getResultList();
         } catch (Exception e) {
-            throw new RuntimeException("User not found", e);
+            throw new RuntimeException("Could not get users from DB", e);
         }
     }
 }
