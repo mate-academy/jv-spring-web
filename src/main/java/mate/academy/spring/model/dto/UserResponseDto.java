@@ -1,16 +1,12 @@
 package mate.academy.spring.model.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class UserResponseDto {
     private Long id;
     private String name;
     private String lastName;
-
-    public UserResponseDto(Long id, String name, String lastName) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-    }
 }
