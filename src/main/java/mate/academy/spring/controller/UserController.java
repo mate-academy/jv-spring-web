@@ -38,7 +38,7 @@ public class UserController {
     @GetMapping("/inject")
     public String injectMockData() {
         User bob = new User();
-        bob.setName("Bob");
+        bob.setName("Bobb");
         bob.setLastName("Scala");
 
         User tom = new User();
