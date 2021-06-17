@@ -6,7 +6,6 @@ import mate.academy.spring.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -50,12 +49,9 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User get(Long id) {
+    public Optional<User> get(Long id) {
         try (Session session = sessionFactory.openSession()) {
-            Query<User> getUserQuery =
-                    session.createQuery("from User where id = :id", User.class);
-            getUserQuery.setParameter("id", id);
-            return getUserQuery.getSingleResult();
+            return Optional.ofNullable(session.get(User.class, id));
         } catch (Exception e) {
             throw new RuntimeException("User not found", e);
         }
