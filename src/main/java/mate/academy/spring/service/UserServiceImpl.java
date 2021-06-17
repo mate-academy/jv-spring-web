@@ -22,4 +22,10 @@ public class UserServiceImpl implements UserService {
     public List<User> listUsers() {
         return userDao.getAll();
     }
+
+    @Override
+    public User get(Long id) {
+        return userDao.get(id).orElseThrow(() -> new RuntimeException("Doesn't "
+                + "contain user by id " + id));
+    }
 }
