@@ -38,7 +38,7 @@ public class UserControllerImpl implements UserController {
     @Override
     @GetMapping("/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
-        return userMapper.parse(userService.get(userId));
+        return userMapper.parseToDto(userService.get(userId));
     }
 
     @Override
@@ -46,7 +46,7 @@ public class UserControllerImpl implements UserController {
     public List<UserResponseDto> getAll() {
         return userService.listUsers()
                 .stream()
-                .map(userMapper::parse)
+                .map(userMapper::parseToDto)
                 .collect(Collectors.toList());
     }
 }
