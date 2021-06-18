@@ -10,7 +10,7 @@ public class UserDtoMapper {
         UserResponseDto userResponseDto = new UserResponseDto();
         userResponseDto.setId(user.getId());
         userResponseDto.setName(user.getName());
-        userResponseDto.setCountry(userResponseDto.getCountry());
+        userResponseDto.setLastName(user.getLastName());
         return userResponseDto;
     }
 }
