@@ -36,12 +36,12 @@ public class UserController {
 
     @GetMapping("/inject")
     public String injectMockData() {
-        User bob = new User("Bob", "Smith");
-        User alice = new User("Alice", "Smith");
-        User john = new User("John", "Smith");
-        userService.add(bob);
-        userService.add(alice);
-        userService.add(john);
+        User harryPotter = new User("Harry", "Potter");
+        User hermioneGranger = new User("`hermione", "Granger");
+        User ronWeasley = new User("Ron", "Weasley");
+        userService.add(harryPotter);
+        userService.add(hermioneGranger);
+        userService.add(ronWeasley);
         return "Done";
     }
 }
