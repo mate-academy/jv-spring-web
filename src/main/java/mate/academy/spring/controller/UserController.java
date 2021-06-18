@@ -26,13 +26,13 @@ public class UserController {
     public List<UserResponseDto> getAll() {
         return userService.listUsers()
                 .stream()
-                .map(userDtoMapper::parse)
+                .map(userDtoMapper::parseToDto)
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
-        return userDtoMapper.parse(userService.get(userId));
+        return userDtoMapper.parseToDto(userService.get(userId));
     }
 
     @GetMapping("/inject")
