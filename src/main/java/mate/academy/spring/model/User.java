@@ -13,6 +13,14 @@ public class User {
     private String name;
     private String lastName;
 
+    public User() {
+    }
+
+    public User(String name, String lastName) {
+        this.name = name;
+        this.lastName = lastName;
+    }
+
     public Long getId() {
         return id;
     }
@@ -41,7 +49,7 @@ public class User {
     public String toString() {
         return "User{"
                 + "id=" + id
-                + ", name='" + name + '\''
-                + ", lastName='" + lastName + '\'' + '}';
+                + ", name = '" + name + '\''
+                + ", lastName = '" + lastName + '\'' + '}';
     }
 }
