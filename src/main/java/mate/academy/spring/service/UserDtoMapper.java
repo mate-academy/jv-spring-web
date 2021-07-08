@@ -2,13 +2,12 @@ package mate.academy.spring.service;
 
 import mate.academy.spring.model.User;
 import mate.academy.spring.model.dto.UserResponseDto;
+import org.springframework.stereotype.Component;
 
-public class UserMapper {
+@Component
+public class UserDtoMapper {
 
-    private UserMapper() {
-    }
-
-    public static UserResponseDto parse(User user) {
+    public UserResponseDto parse(User user) {
         return new UserResponseDto(user.getId(), user.getName(), user.getLastName());
     }
 
