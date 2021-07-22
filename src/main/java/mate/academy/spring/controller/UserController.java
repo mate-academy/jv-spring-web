@@ -1,5 +1,7 @@
 package mate.academy.spring.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.mapper.UserDtoMapper;
 import mate.academy.spring.model.User;
@@ -9,9 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/users")
@@ -33,13 +32,13 @@ public class UserController {
         userService.add(roma);
 
         User ghora = new User();
-        roma.setName("Ghora");
-        roma.setLastName("Nogoruck");
+        ghora.setName("Ghora");
+        ghora.setLastName("Nogoruck");
         userService.add(ghora);
 
         User nyura = new User();
-        roma.setName("Nyura");
-        roma.setLastName("Tango");
+        nyura.setName("Nyura");
+        nyura.setLastName("Tango");
         userService.add(nyura);
 
         return "Done!";
