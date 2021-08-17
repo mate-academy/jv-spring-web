@@ -14,7 +14,6 @@ public class User {
     private String lastName;
 
     public User(){
-
     }
 
     public User(String name, String lastName) {

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController("/users")
 public class UserController {
     private final UserService userService;
     private final UserDtoMapper userDtoMapper;
@@ -21,19 +21,19 @@ public class UserController {
         this.userDtoMapper = userDtoMapper;
     }
 
-    @GetMapping("/users/")
+    @GetMapping("/")
     public List<UserResponseDto> getUsers() {
         return userService.getAll().stream()
                 .map(userDtoMapper::parse)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/users/{userId}")
+    @GetMapping("/{userId}")
     public UserResponseDto getUserById(@PathVariable Long userId) {
         return userDtoMapper.parse(userService.get(userId));
     }
 
-    @GetMapping("/users/inject")
+    @GetMapping("/inject")
     public String injectMockData() {
         User[] mySiblings = {
                 new User("Andrew", "Kuruch"),
