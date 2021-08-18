@@ -1,7 +1,7 @@
 package mate.academy.spring.dto;
 
 public class UserResponseDto {
-    private long id;
+    private Long id;
     private String name;
     private String lastName;
 

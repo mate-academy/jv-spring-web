@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
-import mate.academy.spring.service.UserMapper;
+import mate.academy.spring.service.mapper.UserMapper;
 import mate.academy.spring.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +27,7 @@ public class UserController {
         return userMapper.parse(userService.get(id));
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userMapper::parse)
