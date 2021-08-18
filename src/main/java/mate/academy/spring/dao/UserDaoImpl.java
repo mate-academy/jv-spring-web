@@ -43,7 +43,7 @@ public class UserDaoImpl implements UserDao {
             return session.createQuery("FROM User", User.class)
                     .getResultList();
         } catch (Exception e) {
-            throw new RuntimeException("User not found", e);
+            throw new RuntimeException("Users not found", e);
         }
     }
 
