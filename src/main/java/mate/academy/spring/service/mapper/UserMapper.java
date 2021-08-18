@@ -1,0 +1,24 @@
+package mate.academy.spring.service.mapper;
+
+import mate.academy.spring.model.User;
+import mate.academy.spring.service.dto.UserResponseDto;
+import org.springframework.stereotype.Component;
+
+@Component
+public class UserMapper {
+    public UserResponseDto parse(User user) {
+        UserResponseDto responseDto = new UserResponseDto();
+        responseDto.setId(user.getId());
+        responseDto.setName(user.getName());
+        responseDto.setLastName(user.getLastName());
+        return responseDto;
+    }
+
+    public User toModel(UserResponseDto responseDto) {
+        User user = new User();
+        user.setId(responseDto.getId());
+        user.setName(responseDto.getName());
+        user.setLastName(responseDto.getLastName());
+        return user;
+    }
+}
