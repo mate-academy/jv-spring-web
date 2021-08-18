@@ -24,14 +24,12 @@ public class UserController {
 
     @GetMapping("/inject")
     public String add() {
-        User test1 = new User("test1", "1");
-        User test2 = new User("test2", "2");
-        User test3 = new User("test3", "3");
-        User test4 = new User("test4", "4");
-        userService.add(test1);
-        userService.add(test2);
-        userService.add(test3);
-        userService.add(test4);
+        User alex = new User("Alexandr", "First");
+        User shechalo = new User("Tom", "Shechalo");
+        User javaSlav = new User("JavaSlav", "Eights");
+        userService.add(alex);
+        userService.add(shechalo);
+        userService.add(javaSlav);
         return "Done!";
     }
 
