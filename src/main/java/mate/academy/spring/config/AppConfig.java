@@ -17,19 +17,19 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
         "mate.academy.spring",
 })
 public class AppConfig {
-    private final Environment env;
+    private final Environment environment;
 
-    public AppConfig(Environment env) {
-        this.env = env;
+    public AppConfig(Environment environment) {
+        this.environment = environment;
     }
 
     @Bean
     public DataSource getDataSource() {
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(env.getProperty("db.driver"));
-        dataSource.setUrl(env.getProperty("db.url"));
-        dataSource.setUsername(env.getProperty("db.user"));
-        dataSource.setPassword(env.getProperty("db.password"));
+        dataSource.setDriverClassName(environment.getProperty("db.driver"));
+        dataSource.setUrl(environment.getProperty("db.url"));
+        dataSource.setUsername(environment.getProperty("db.username"));
+        dataSource.setPassword(environment.getProperty("db.password"));
         return dataSource;
     }
 
@@ -39,9 +39,9 @@ public class AppConfig {
         factoryBean.setDataSource(getDataSource());
 
         Properties properties = new Properties();
-        properties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-        properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
-        properties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+        properties.put("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
+        properties.put("hibernate.dialect", environment.getProperty("hibernate.dialect"));
+        properties.put("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
 
         factoryBean.setHibernateProperties(properties);
         factoryBean.setAnnotatedClasses(User.class);
