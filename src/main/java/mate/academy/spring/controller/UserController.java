@@ -24,14 +24,14 @@ public class UserController {
 
     @GetMapping("/inject")
     public String injectData() {
-        User user1 = new User("Salazar", "Slytherin");
-        User user2 = new User("Helga", "Hufflepuff");
-        User user3 = new User("Rowena", "Ravenclaw");
-        User user4 = new User("Godric", "Gryffindor");
-        userService.add(user1);
-        userService.add(user2);
-        userService.add(user3);
-        userService.add(user4);
+        User slytherin = new User("Salazar", "Slytherin");
+        User hufflepuff = new User("Helga", "Hufflepuff");
+        User ravenclaw = new User("Rowena", "Ravenclaw");
+        User gryffindor = new User("Godric", "Gryffindor");
+        userService.add(slytherin);
+        userService.add(hufflepuff);
+        userService.add(ravenclaw);
+        userService.add(gryffindor);
         return "Data saved to DB";
     }
 
