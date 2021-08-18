@@ -1,4 +1,4 @@
-package mate.academy.spring.dao;
+package mate.academy.spring.dto;
 
 import java.util.Objects;
 
