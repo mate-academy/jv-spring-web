@@ -24,10 +24,10 @@ public class UserController {
 
     @GetMapping("/inject")
     public String injectData() {
-        User user1 = new User("1", "1");
-        User user2 = new User("2", "2");
-        User user3 = new User("3", "3");
-        User user4 = new User("4", "4");
+        User user1 = new User("Salazar", "Slytherin");
+        User user2 = new User("Helga", "Hufflepuff");
+        User user3 = new User("Rowena", "Ravenclaw");
+        User user4 = new User("Godric", "Gryffindor");
         userService.add(user1);
         userService.add(user2);
         userService.add(user3);
@@ -35,7 +35,7 @@ public class UserController {
         return "Data saved to DB";
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userMapper::parse)
