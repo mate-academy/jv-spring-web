@@ -9,7 +9,7 @@ public class UserDtoMapper {
     public UserResponseDto parse(User user) {
         UserResponseDto userDto = new UserResponseDto();
         userDto.setId(user.getId());
-        userDto.setName(userDto.getName());
+        userDto.setName(user.getName());
         userDto.setLastName(user.getLastName());
         return userDto;
     }
