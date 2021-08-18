@@ -1,7 +1,6 @@
 package mate.academy.spring.service.impl;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import mate.academy.spring.dao.UserDao;
 import mate.academy.spring.model.User;
 import mate.academy.spring.service.UserService;
@@ -29,6 +28,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User get(Long id) {
-        return userDao.get(id).orElseThrow(NoSuchElementException::new);
+        return userDao.get(id).orElseThrow();
     }
 }
