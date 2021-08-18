@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserDtoMapper {
-
     public static UserResponseDto parse(User user) {
         UserResponseDto userResponseDto = new UserResponseDto();
         userResponseDto.setId(user.getId());
