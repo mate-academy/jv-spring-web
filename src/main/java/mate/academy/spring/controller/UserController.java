@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/users")
 public class UserController {
     private UserService userService;
+    private UserMapper userMapper;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UserMapper userMapper) {
         this.userService = userService;
+        this.userMapper = userMapper;
     }
 
     @GetMapping("/inject")
@@ -38,13 +40,13 @@ public class UserController {
 
     @GetMapping("/{userId}")
     public UserResponseDto getUser(@PathVariable Long userId) {
-        return UserMapper.parse(userService.get(userId));
+        return userMapper.parse(userService.get(userId));
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<UserResponseDto> getAllUsers() {
         return userService.getAll().stream()
-                .map(UserMapper::parse)
+                .map(u -> userMapper.parse(u))
                 .collect(Collectors.toList());
     }
 }
