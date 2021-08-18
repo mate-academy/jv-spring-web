@@ -13,12 +13,4 @@ public class UserMapper {
         responseDto.setLastName(user.getLastName());
         return responseDto;
     }
-
-    public User toModel(UserResponseDto responseDto) {
-        User user = new User();
-        user.setId(responseDto.getId());
-        user.setName(responseDto.getName());
-        user.setLastName(responseDto.getLastName());
-        return user;
-    }
 }

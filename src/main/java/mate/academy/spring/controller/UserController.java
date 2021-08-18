@@ -22,7 +22,7 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<UserResponseDto> getAllUsers() {
         return userService.getAll()
                 .stream()
