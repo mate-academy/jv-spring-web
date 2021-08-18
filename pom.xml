@@ -30,6 +30,12 @@
             <version>5.3.9</version>
         </dependency>
         <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.12.4</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-dbcp2</artifactId>
             <version>2.9.0</version>
@@ -58,7 +64,7 @@
                <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.2.16.RELEASE</version>
+            <version>5.3.9</version>
         </dependency>
     </dependencies>
     <build>
