@@ -25,6 +25,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User get(Long id) {
-        return userDao.get(id).get();
+        return userDao.get(id).orElseThrow(() ->
+                new IndexOutOfBoundsException("User with requested ID not found"));
     }
 }
