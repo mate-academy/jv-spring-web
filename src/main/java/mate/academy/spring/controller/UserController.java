@@ -53,9 +53,9 @@ public class UserController {
         natalie.setLastName("Didyk");
 
         User lia = new User();
-        natalie.setId(3L);
-        natalie.setName("Lia");
-        natalie.setLastName("Ladoda");
+        lia.setId(3L);
+        lia.setName("Lia");
+        lia.setLastName("Ladoda");
 
         userService.add(dana);
         userService.add(natalie);
