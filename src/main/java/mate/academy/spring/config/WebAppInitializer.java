@@ -1,7 +1,5 @@
 package mate.academy.spring.config;
 
-import mate.academy.spring.config.AppConfig;
-import mate.academy.spring.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
