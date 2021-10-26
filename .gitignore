@@ -1,3 +1,5 @@
 .idea/*
 *.iml
 target/*
+src/webapp/*
+src/main/java/mate/academy/spring/config/WebConfig.java

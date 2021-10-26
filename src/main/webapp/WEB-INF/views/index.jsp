@@ -5,6 +5,6 @@
     <title>Hello mates!</title>
 </head>
 <body>
-<h1>World is huge</h1>
+<h1>${message}</h1>
 </body>
 </html>
