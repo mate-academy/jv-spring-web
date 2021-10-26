@@ -47,7 +47,7 @@ public class UserController {
         return userMapper.parse(userService.get(userId));
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userMapper::parse)
