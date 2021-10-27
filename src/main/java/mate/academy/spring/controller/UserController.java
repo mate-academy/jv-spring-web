@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     private final UserService userService;
     private final UserMapper userMapper;
-    private User user;
 
     @Autowired
     public UserController(UserService userService, UserMapper userMapper) {
@@ -27,19 +26,22 @@ public class UserController {
 
     @GetMapping("/inject")
     public void get() {
-        user = new User();
+        User user = new User();
         user.setName("John");
         user.setLastName("Johnson");
         userService.add(user);
-        user.setLastName("Mood");
-        user.setName("Kate");
-        userService.add(user);
-        user.setName("Jack");
-        user.setLastName("Jackson");
-        userService.add(user);
-        user.setLastName("Judy");
-        user.setName("Mate");
-        userService.add(user);
+        User userSecond = new User();
+        userSecond.setLastName("Mood");
+        userSecond.setName("Kate");
+        userService.add(userSecond);
+        User userThird = new User();
+        userThird.setName("Jack");
+        userThird.setLastName("Jackson");
+        userService.add(userThird);
+        User userForth = new User();
+        userForth.setLastName("Judy");
+        userForth.setName("Mate");
+        userService.add(userForth);
     }
 
     @GetMapping("/{userId}")
