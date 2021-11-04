@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    private UserService userService;
-    private UserDtoMapper userDtoMapper;
+    private final UserService userService;
+    private final UserDtoMapper userDtoMapper;
 
     @Autowired
     public UserController(UserService userService, UserDtoMapper userDtoMapper) {
@@ -29,7 +29,7 @@ public class UserController {
         return userDtoMapper.parse(userService.get(userId));
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userDtoMapper::parse)
