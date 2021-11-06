@@ -1,13 +1,12 @@
 package mate.academy.spring.dao;
 
+import java.util.List;
+import java.util.Optional;
 import mate.academy.spring.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class UserDaoImpl implements UserDao {

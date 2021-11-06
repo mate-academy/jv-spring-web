@@ -1,16 +1,16 @@
 package mate.academy.spring.model.dto;
 
 public class UserResponseDto {
-    private long Id;
+    private long id;
     private String name;
     private String lastname;
 
     public long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
