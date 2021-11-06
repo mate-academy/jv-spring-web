@@ -1,5 +1,5 @@
 .idea/*
 *.iml
 target/*
-/webapp/
-.gitignore
+src/main/webapp/*
+.gitignore/*
