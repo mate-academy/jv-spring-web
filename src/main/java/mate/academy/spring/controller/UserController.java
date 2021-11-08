@@ -22,18 +22,18 @@ public class UserController {
         this.userDtoMapper = userDtoMapper;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService
                 .getAll()
                 .stream()
-                .map(userDtoMapper::parseModelToDto)
+                .map(userDtoMapper::mapModelToDto)
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/{userId}")
     UserResponseDto get(@PathVariable Long userId) {
-        return userDtoMapper.parseModelToDto(userService.get(userId));
+        return userDtoMapper.mapModelToDto(userService.get(userId));
     }
 
     @GetMapping("/inject")
