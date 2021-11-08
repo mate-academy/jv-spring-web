@@ -13,10 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
-    @Autowired
     private UserMapper userMapper;
-    @Autowired
     private UserService userService;
+
+    @Autowired
+    public UserController(UserMapper userMapper, UserService userService) {
+        this.userMapper = userMapper;
+        this.userService = userService;
+    }
 
     @GetMapping("/users/{id}")
     public UserResponseDto get(@PathVariable Long id) {
