@@ -34,7 +34,12 @@ public class UserController {
         userAlisa.setLastName("Last Names Alisa");
         userService.add(userBob);
         userService.add(userAlisa);
-        return "Dane!";
+        User userIvan= new User();
+        userAlisa.setName("Ivan");
+        userAlisa.setLastName("Last Names Ivan");
+        userService.add(userBob);
+        userService.add(userAlisa);
+        return "Adding users is done!";
     }
 
     @GetMapping("/{userId}")
