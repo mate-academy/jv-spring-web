@@ -1,31 +1,31 @@
 package mate.academy.spring.model.dto;
 
 public class UserResponseDto {
-    private Long userId;
-    private String userName;
-    private String userLastName;
+    private Long id;
+    private String name;
+    private String lastName;
 
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getUserLastName() {
-        return userLastName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setUserLastName(String userLastName) {
-        this.userLastName = userLastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

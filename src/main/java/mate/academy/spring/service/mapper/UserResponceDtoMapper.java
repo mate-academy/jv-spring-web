@@ -9,9 +9,9 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface UserResponceDtoMapper {
 
-    @Mapping(target = "userId", source = "user.id")
-    @Mapping(target = "userName", source = "user.name")
-    @Mapping(target = "userLastName", source = "user.lastName")
+    @Mapping(target = "id", source = "user.id")
+    @Mapping(target = "name", source = "user.name")
+    @Mapping(target = "lastName", source = "user.lastName")
     UserResponseDto userToUserResponceDto(User user);
 
     List<UserResponseDto> userListToUserResponceDtoList(List<User> users);
