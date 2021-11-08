@@ -28,17 +28,16 @@ public class UserController {
     public String injectMockData() {
         User userBob = new User();
         userBob.setName("Bob");
-        userBob.setLastName("Last Names Bob");
+        userBob.setLastName("Last Name of Bob");
         User userAlisa = new User();
         userAlisa.setName("Alisa");
-        userAlisa.setLastName("Last Names Alisa");
+        userAlisa.setLastName("Last Name of Alisa");
+        User userIvan = new User();
+        userIvan.setName("Ivan");
+        userIvan.setLastName("Last Name of Ivan");
         userService.add(userBob);
         userService.add(userAlisa);
-        User userIvan= new User();
-        userAlisa.setName("Ivan");
-        userAlisa.setLastName("Last Names Ivan");
-        userService.add(userBob);
-        userService.add(userAlisa);
+        userService.add(userIvan);
         return "Adding users is done!";
     }
 
