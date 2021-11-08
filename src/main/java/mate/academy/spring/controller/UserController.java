@@ -6,7 +6,6 @@ import mate.academy.spring.model.User;
 import mate.academy.spring.model.dto.UserResponseDto;
 import mate.academy.spring.service.UserService;
 import mate.academy.spring.service.mapper.UserDtoMapper;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
