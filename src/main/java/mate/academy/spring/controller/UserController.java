@@ -42,11 +42,14 @@ public class UserController {
 
     @GetMapping("/")
     List<UserResponseDto> getAll() {
-        return userService.getAll().stream().map(userDtoMapper::parse).collect(Collectors.toList());
+        return userService.getAll()
+                .stream()
+                .map(userDtoMapper::parse)
+                .collect(Collectors.toList());
     }
 
-    @GetMapping("/{id}")
-    public UserResponseDto get(@PathVariable Long id) {
-        return userDtoMapper.parse(userService.get(id));
+    @GetMapping("/{userId}")
+    public UserResponseDto get(@PathVariable Long userId) {
+        return userDtoMapper.parse(userService.get(userId));
     }
 }
