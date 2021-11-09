@@ -1,12 +1,11 @@
-package mate.academy.spring.service;
+package mate.academy.spring.service.mapper;
 
 import mate.academy.spring.model.User;
 import mate.academy.spring.model.dto.UserResponseDto;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserMapperImpl implements UserMapper {
-    @Override
+public class UserMapper {
     public UserResponseDto mapUserToDto(User user) {
         UserResponseDto dto = new UserResponseDto();
         dto.setId(user.getId());
