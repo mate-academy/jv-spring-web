@@ -49,7 +49,7 @@ public class UserController {
     @GetMapping("/")
     List<UserResponseDto> getAll() {
         return userService.getAll().stream()
-                .map(a -> userDtoMapper.parse(a))
+                .map(userDtoMapper::parse)
                 .collect(Collectors.toList());
     }
 }
