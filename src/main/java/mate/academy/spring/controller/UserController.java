@@ -23,11 +23,11 @@ public class UserController {
         this.userDtoMapper = userDtoMapper;
     }
 
-    @GetMapping("/users/inject")
+    @GetMapping("/inject")
     public String addUser() {
-        User bob = new User(1L, "Bob", "Boon");
-        User alice = new User(2L, "Alice", "Alicia");
-        User max = new User(3L, "Max", "Maximovich");
+        User bob = new User("Bob", "Boon");
+        User alice = new User("Alice", "Alicia");
+        User max = new User("Max", "Maximovich");
         userService.add(bob);
         userService.add(alice);
         userService.add(max);
@@ -39,7 +39,7 @@ public class UserController {
         return userDtoMapper.parse(userService.get(userId));
     }
 
-    @GetMapping("/users/") //
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userDtoMapper::parse)

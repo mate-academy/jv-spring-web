@@ -18,12 +18,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id) {
-        this.id = id;
-    }
-
-    public User(Long id, String name, String lastName) {
-        this.id = id;
+    public User(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
     }
