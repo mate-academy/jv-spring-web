@@ -24,14 +24,10 @@ public class UserController {
 
     @GetMapping("/inject")
     public boolean injectData() {
-        try {
-            userService.add(new User("Hermione", "Granger"));
-            userService.add(new User("Ron", "Weasley"));
-            userService.add(new User("Harry", "Potter"));
-            userService.add(new User("Cedric", "Diggory"));
-        } catch (Exception e) {
-            return false;
-        }
+        userService.add(new User("Hermione", "Granger"));
+        userService.add(new User("Ron", "Weasley"));
+        userService.add(new User("Harry", "Potter"));
+        userService.add(new User("Cedric", "Diggory"));
         return true;
     }
 
