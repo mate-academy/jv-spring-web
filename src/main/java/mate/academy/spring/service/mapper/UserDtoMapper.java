@@ -1,7 +1,6 @@
 package mate.academy.spring.service.mapper;
 
 import mate.academy.spring.model.User;
-import mate.academy.spring.model.dto.UserRequestDto;
 import mate.academy.spring.model.dto.UserResponseDto;
 import org.springframework.stereotype.Component;
 
@@ -13,12 +12,5 @@ public class UserDtoMapper {
         responseDto.setName(user.getName());
         responseDto.setLastName(user.getLastName());
         return responseDto;
-    }
-
-    public User toModel(UserRequestDto requestDto) {
-        User user = new User();
-        user.setName(requestDto.getName());
-        user.setLastName(requestDto.getLastName());
-        return user;
     }
 }
