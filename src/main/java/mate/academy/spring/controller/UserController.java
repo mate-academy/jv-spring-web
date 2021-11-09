@@ -50,7 +50,6 @@ public class UserController {
         return "Done!";
     }
 
-    @ResponseBody
     @GetMapping("/{userId}")
     public UserResponseDto getUserById(@PathVariable Long userId) {
         return userDtoMapper.parse(userService.get(userId));
