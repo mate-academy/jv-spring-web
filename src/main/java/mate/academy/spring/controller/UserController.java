@@ -29,9 +29,9 @@ public class UserController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/{id}")
-    public UserResponseDto getUserById(@PathVariable Long id) {
-        return userDtoMapper.parse(userService.get(id));
+    @GetMapping("/{userId}")
+    public UserResponseDto getUserById(@PathVariable Long userId) {
+        return userDtoMapper.parse(userService.get(userId));
     }
 
     @GetMapping("/inject")
