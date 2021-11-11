@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("users")
+@RequestMapping("/users")
 public class UserController {
     private UserService userService;
     private UserDtoMapper userDtoMapper;
@@ -35,7 +35,7 @@ public class UserController {
         return "Users were added successfully!";
     }
 
-    @GetMapping()
+    @GetMapping("/")
     public List<UserResponseDto> getAllUsers() {
         return userService.getAll()
                 .stream()
