@@ -8,4 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = "mate.academy.spring.controller")
-public class WebConfig implements WebMvcConfigurer { }
+public class WebConfig implements WebMvcConfigurer {
+
+}
