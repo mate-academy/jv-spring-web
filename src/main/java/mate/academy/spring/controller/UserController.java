@@ -1,6 +1,7 @@
 package mate.academy.spring.controller;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import mate.academy.spring.model.User;
 import mate.academy.spring.model.dto.UserResponseDto;
@@ -9,9 +10,12 @@ import mate.academy.spring.service.mapper.UserDtoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping(value = "/users", method = RequestMethod.GET)
 public class UserController {
     private final UserService userService;
     private final UserDtoMapper userDtoMapper;
@@ -23,7 +27,7 @@ public class UserController {
         this.userDtoMapper = userDtoMapper;
     }
 
-    @GetMapping("/users/inject")
+    @GetMapping("/inject")
     public String injectData() {
         User bob = new User();
         bob.setName("Bob");
@@ -42,15 +46,16 @@ public class UserController {
         return "Done!";
     }
 
-    @GetMapping("/users/{userId}")
+    @GetMapping("/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
-        if (userService.get(userId) != null) {
+        try {
             return userDtoMapper.parse(userService.get(userId));
+        } catch (NoSuchElementException e) {
+            throw new RuntimeException("Can't find user by id " + userId);
         }
-        return null;
     }
 
-    @GetMapping("/users/")
+    @GetMapping("")
     public List<UserResponseDto> getAll() {
         return userService.getAll()
                 .stream()
