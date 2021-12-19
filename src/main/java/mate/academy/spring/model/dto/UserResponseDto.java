@@ -1,22 +1,14 @@
-package mate.academy.spring.model;
+package mate.academy.spring.model.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserResponseDto {
     private Long id;
     private String name;
     private String lastName;
 
-    public User() {
+    public UserResponseDto() {
     }
 
-    public User(Long id, String name, String lastName) {
+    public UserResponseDto(Long id, String name, String lastName) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -44,13 +36,5 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    @Override
-    public String toString() {
-        return "User{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + ", lastName='" + lastName + '\'' + '}';
     }
 }
