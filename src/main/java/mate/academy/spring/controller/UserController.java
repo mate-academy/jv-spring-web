@@ -39,12 +39,12 @@ public class UserController {
     @GetMapping("/inject")
     public void injectUsers() {
         User user1 = new User();
-        User user2 = new User();
-        User user3 = new User();
         user1.setName("Maksym");
         user1.setLastName("Matuliak");
+        User user2 = new User();
         user2.setName("Ivan");
         user2.setLastName("Koval");
+        User user3 = new User();
         user3.setName("Vlad");
         user3.setLastName("Martkiv");
         userService.add(user1);
