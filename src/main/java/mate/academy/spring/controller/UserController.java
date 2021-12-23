@@ -27,9 +27,9 @@ public class UserController {
 
     @GetMapping("/inject")
     public String injectData() {
-       userService.add( new User("Trinity","Human"));
-        userService.add( new User("Neo","Human"));
-        userService.add( new User("Smith","Agent"));
+        userService.add(new User("Trinity","Human"));
+        userService.add(new User("Neo","Human"));
+        userService.add(new User("Smith","Agent"));
         return "Injected users!";
     }
 
@@ -41,6 +41,7 @@ public class UserController {
             throw new RuntimeException("No user with id: " + userId);
         }
     }
+
     @GetMapping("/")
     public List<UserResponseDto> getAll() {
         return userService.getAll()
