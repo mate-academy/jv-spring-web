@@ -1,7 +1,6 @@
 package mate.academy.spring.controller;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import mate.academy.spring.model.User;
 import mate.academy.spring.model.dto.UserResponseDto;
@@ -35,11 +34,7 @@ public class UserController {
 
     @GetMapping("/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
-        try {
-            return userDtoMapper.parse(userService.get(userId));
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("No user with id: " + userId);
-        }
+        return userDtoMapper.parse(userService.get(userId));
     }
 
     @GetMapping("/")
