@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
-import mate.academy.spring.service.UserMapper;
+import mate.academy.spring.service.mapper.UserMapper;
 import mate.academy.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
