@@ -21,12 +21,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public User(Long id, String name, String lastName) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-    }
-
     public Long getId() {
         return id;
     }
