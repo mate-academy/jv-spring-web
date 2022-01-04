@@ -13,6 +13,20 @@ public class User {
     private String name;
     private String lastName;
 
+    public User() {
+    }
+
+    public User(String name, String lastName) {
+        this.name = name;
+        this.lastName = lastName;
+    }
+
+    public User(Long id, String name, String lastName) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+    }
+
     public Long getId() {
         return id;
     }
