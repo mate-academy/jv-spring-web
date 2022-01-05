@@ -34,7 +34,7 @@ public class UserController {
         userService.add(third);
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userMapper::parse)
