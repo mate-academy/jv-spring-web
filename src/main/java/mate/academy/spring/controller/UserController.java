@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
     private UserService userService;
     private UserMapper userMapper;
@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/inject")
-    public void injectNewUser() {
+    public void injectNewUsers() {
         User first = new User("First", "LastFirst");
         User second = new User("Second", "LastSecond");
         User third = new User("Third", "LastThird");
