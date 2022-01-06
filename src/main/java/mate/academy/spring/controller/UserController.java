@@ -25,18 +25,18 @@ public class UserController {
 
     @GetMapping("/inject")
     public String inject() {
-        User user = new User();
-        user.setName("Andrey");
-        user.setLastName("Dzundza");
-        userService.add(user);
-        User user1 = new User();
-        user1.setName("Artem");
-        user1.setLastName("Maskow");
-        userService.add(user1);
-        User user2 = new User();
-        user2.setName("Ilya");
-        user2.setLastName("Baranow");
-        userService.add(user2);
+        User firstUser = new User();
+        firstUser.setName("Andrey");
+        firstUser.setLastName("Dzundza");
+        userService.add(firstUser);
+        User secondUser = new User();
+        secondUser.setName("Artem");
+        secondUser.setLastName("Maskow");
+        userService.add(secondUser);
+        User thirdUser = new User();
+        thirdUser.setName("Ilya");
+        thirdUser.setLastName("Baranow");
+        userService.add(thirdUser);
         return "Done!";
     }
 
