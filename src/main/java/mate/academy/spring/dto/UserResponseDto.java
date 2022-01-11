@@ -9,6 +9,7 @@ public class UserResponseDto {
     }
 
     public UserResponseDto(Long id, String name, String lastName) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
     }
