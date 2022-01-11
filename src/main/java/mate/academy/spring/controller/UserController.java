@@ -43,7 +43,7 @@ public class UserController {
         return "Mock data created!";
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/{id}")
     public UserResponseDto get(@PathVariable Long userId) {
         return userDtoMapper.parse(userService.get(userId));
     }
