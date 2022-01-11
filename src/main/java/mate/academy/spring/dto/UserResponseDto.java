@@ -5,10 +5,6 @@ public class UserResponseDto {
     private String name;
     private String lastName;
 
-    public UserResponseDto() {
-
-    }
-
     public Long getId() {
         return id;
     }
