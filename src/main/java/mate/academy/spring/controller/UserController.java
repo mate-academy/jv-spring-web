@@ -8,9 +8,11 @@ import mate.academy.spring.service.UserService;
 import mate.academy.spring.service.mapper.UserMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping ("/users")
 public class UserController {
     private final UserService userService;
     private final UserMapper userMapper;
@@ -20,19 +22,19 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @GetMapping("/users/{userId}")
+    @GetMapping("/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
         return userMapper.parse(userService.get(userId));
     }
 
-    @GetMapping("/users/")
+    @GetMapping("/")
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userMapper::parse)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/users/inject")
+    @GetMapping("/inject")
     public void injectMockData() {
         User bob = new User();
         bob.setName("Bob");
