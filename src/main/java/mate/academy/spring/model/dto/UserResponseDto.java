@@ -1,19 +1,11 @@
-package mate.academy.spring.model;
+package mate.academy.spring.model.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserResponseDto {
     private Long id;
     private String name;
     private String lastName;
 
-    public User() {
+    public UserResponseDto() {
     }
 
     public Long getId() {
@@ -42,9 +34,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{"
-                + "id=" + id
+        return "UserResponseDto{" + "id=" + id
                 + ", name='" + name + '\''
-                + ", lastName='" + lastName + '\'' + '}';
+                + ", lastName='" + lastName
+                + '\'' + '}';
     }
 }
