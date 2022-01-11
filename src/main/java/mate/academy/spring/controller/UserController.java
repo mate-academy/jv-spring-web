@@ -30,9 +30,9 @@ public class UserController {
         return "Users were injected successfully";
     }
 
-    @GetMapping("/{userId}")
-    public UserResponseDto get(@PathVariable Long userId) {
-        return userDtoMapper.parse(userService.get(userId));
+    @GetMapping("/{id}")
+    public UserResponseDto get(@PathVariable Long id) {
+        return userDtoMapper.parse(userService.get(id));
     }
 
     @GetMapping
