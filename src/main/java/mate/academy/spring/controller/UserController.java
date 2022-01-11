@@ -22,9 +22,9 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/{userId}")
-    public UserResponseDto getById(@PathVariable Long userId) {
-        return userMapper.parse(userService.get(userId));
+    @GetMapping("/{id}")
+    public UserResponseDto getById(@PathVariable Long id) {
+        return userMapper.parse(userService.get(id));
     }
 
     @GetMapping

@@ -5,9 +5,6 @@ public class UserResponseDto {
     private String name;
     private String lastName;
 
-    public UserResponseDto(){
-    }
-
     public UserResponseDto(Long id, String name, String lastName) {
         this.id = id;
         this.name = name;
