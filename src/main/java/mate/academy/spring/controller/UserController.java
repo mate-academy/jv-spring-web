@@ -32,8 +32,8 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public UserResponseDto get(@PathVariable Long id) {
-        User user = userService.get(id);
+    public UserResponseDto get(@PathVariable Long userId) {
+        User user = userService.get(userId);
         return userDtoMapper.parse(user);
     }
 
