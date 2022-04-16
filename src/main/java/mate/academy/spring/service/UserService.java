@@ -9,4 +9,6 @@ public interface UserService {
     List<User> getAll();
 
     User get(Long id);
+
+    List<User> findByName(String name);
 }
