@@ -24,14 +24,14 @@ public class UserController {
         this.userDtoMapper = userDtoMapper;
     }
 
-    @GetMapping
+    @GetMapping// /users
     public List<UserResponseDto> getAllUsers() {
         return userService.getAll().stream()
                 .map(userDtoMapper::parse)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/inject")
+    @GetMapping("/inject") // /users/inject
     public String inject() {
         List<UserRequestDto> dtos = formListForInject();
         List<User> users = dtos.stream()
@@ -43,14 +43,14 @@ public class UserController {
         return "Users are injected!";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") // /users/1
     public UserResponseDto get(@PathVariable Long id) {
         return userDtoMapper.parse(userService.get(id));
     }
 
-    @GetMapping("/find") //?name=John
-    public List<UserResponseDto> getAllByName(@RequestParam String name) {
-        return userService.findByName(name).stream()
+    @GetMapping("/find") // /users/find?name=John
+    public List<UserResponseDto> getAllByFirstName(@RequestParam String name) {
+        return userService.getAllByFirstName(name).stream()
                 .map(userDtoMapper::parse)
                 .collect(Collectors.toList());
     }

@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findByName(String name) {
-        return null;
+    public List<User> getAllByFirstName(String name) {
+        return userDao.getAllByFirstName(name);
     }
 }

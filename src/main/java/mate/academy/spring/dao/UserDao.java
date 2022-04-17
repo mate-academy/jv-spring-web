@@ -10,4 +10,6 @@ public interface UserDao {
     List<User> getAll();
 
     Optional<User> get(Long id);
+
+    List<User> getAllByFirstName(String firstName);
 }

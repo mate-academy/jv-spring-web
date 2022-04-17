@@ -10,5 +10,5 @@ public interface UserService {
 
     User get(Long id);
 
-    List<User> findByName(String name);
+    List<User> getAllByFirstName(String name);
 }
