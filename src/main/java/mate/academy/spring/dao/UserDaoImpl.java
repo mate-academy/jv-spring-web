@@ -6,6 +6,7 @@ import mate.academy.spring.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -53,6 +54,18 @@ public class UserDaoImpl implements UserDao {
             return Optional.ofNullable(session.get(User.class, id));
         } catch (Exception e) {
             throw new RuntimeException("Can't get user by id: " + id, e);
+        }
+    }
+
+    @Override
+    public List<User> getAllByFirstName(String firstName) {
+        try (Session session = sessionFactory.openSession()) {
+            Query<User> query = session.createQuery("FROM User u"
+                    + " WHERE u.firstName = :firstName", User.class);
+            query.setParameter("firstName", firstName);
+            return query.getResultList();
+        } catch (Exception e) {
+            throw new RuntimeException("Can't get all users", e);
         }
     }
 }
