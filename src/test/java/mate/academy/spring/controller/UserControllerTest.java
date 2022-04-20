@@ -1,6 +1,7 @@
 package mate.academy.spring.controller;
 
 import static java.util.Objects.nonNull;
+import mate.academy.spring.dto.UserResponseDto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -10,7 +11,6 @@ import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import mate.academy.spring.config.AppConfig;
-import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
