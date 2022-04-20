@@ -11,7 +11,7 @@ public class UserDtoMapper {
         UserResponseDto userResponseDto = new UserResponseDto();
         userResponseDto.setId(user.getId());
         userResponseDto.setFirstName(user.getFirstName());
-        userResponseDto.setLastName(userResponseDto.getLastName());
+        userResponseDto.setLastName(user.getLastName());
         return userResponseDto;
     }
 }
