@@ -7,7 +7,7 @@ Also, you should add default constructor explicitly if you'll decide to create n
 4. Create UserController in ``controller`` package where you should
     - implement method ```GET: /users/inject``` which will create test data. Let's create three users in this method and save them to DB:
    
-      firstName  | lastName
+      name  | lastName
       ------------- | -------------
       John  | Doe
       Emily  | Stone
