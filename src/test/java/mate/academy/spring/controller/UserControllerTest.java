@@ -29,7 +29,6 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.util.NestedServletException;
 
-@Disabled
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { AppConfig.class })
 @WebAppConfiguration
