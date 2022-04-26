@@ -18,12 +18,12 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots -DskipTests=false package
+        run: mvn --batch-mode --update-snapshots verify
       - uses: mate-academy/auto-approve-action@v2
-        if: ${{ github.event.pull_request && success() }}
+        if: mvn --batch-mode --update-snapshots -DskipTests=false verify && ${{ github.event.pull_request && success() }}
         with:
           github-token: ${{ github.token }}
       - uses: mate-academy/auto-reject-action@v2
-        if: ${{ github.event.pull_request && failure() }}
+        if: mvn --batch-mode --update-snapshots -DskipTests=false verify && ${{ github.event.pull_request && failure() }}
         with:
           github-token: ${{ github.token }}
