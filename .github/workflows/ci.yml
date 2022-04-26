@@ -21,11 +21,11 @@ jobs:
         run: mvn --batch-mode --update-snapshots -DskipTests=false verify
       - name: Auto approve
         uses: mate-academy/auto-approve-action@v2
-        if: ${{ github.event.pull_request && success() }}
+        if: ${{ success() && github.event.pull_request  }}
         with:
           github-token: ${{ github.token }}
       - name: Auto reject
         uses: mate-academy/auto-reject-action@v2
-        if: ${{ github.event.pull_request && failure() }}
+        if: ${{ failure() github.event.pull_request }}
         with:
           github-token: ${{ github.token }}
