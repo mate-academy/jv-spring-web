@@ -38,6 +38,6 @@ public class UserController {
         userService.add(userMapper.convert(new UserResponseDto("Jhon", "Doe")));
         userService.add(userMapper.convert(new UserResponseDto("Emily", "Stone")));
         userService.add(userMapper.convert(new UserResponseDto("Hugh", "Dane")));
-        return "INJECTED";
+        return "Users are injected!";
     }
 }
