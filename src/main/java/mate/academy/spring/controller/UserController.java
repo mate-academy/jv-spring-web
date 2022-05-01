@@ -35,7 +35,7 @@ public class UserController {
 
     @GetMapping("/inject")
     public String inject() {
-        userService.add(userMapper.convert(new UserResponseDto("Jhon", "Doe")));
+        userService.add(userMapper.convert(new UserResponseDto("John", "Doe")));
         userService.add(userMapper.convert(new UserResponseDto("Emily", "Stone")));
         userService.add(userMapper.convert(new UserResponseDto("Hugh", "Dane")));
         return "Users are injected!";
