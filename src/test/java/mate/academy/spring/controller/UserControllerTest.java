@@ -1,14 +1,10 @@
 package mate.academy.spring.controller;
 
-import static java.util.Objects.nonNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javassist.NotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import mate.academy.spring.config.AppConfig;
 import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
@@ -26,7 +22,11 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.util.NestedServletException;
+
+import static java.util.Objects.nonNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { AppConfig.class })
@@ -57,7 +57,7 @@ public class UserControllerTest {
 
   @Test
   public void get_NonExistentUser_notOk() {
-    assertThrows(NestedServletException.class, () -> {
+    assertThrows(NotFoundException.class, () -> {
       sendGetByIdRequest(1L);
     });
   }
