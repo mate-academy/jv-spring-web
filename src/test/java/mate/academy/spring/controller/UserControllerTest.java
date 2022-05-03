@@ -2,7 +2,6 @@ package mate.academy.spring.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javassist.NotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import mate.academy.spring.config.AppConfig;
@@ -57,7 +56,7 @@ public class UserControllerTest {
 
   @Test
   public void get_NonExistentUser_notOk() {
-    assertThrows(NotFoundException.class, () -> {
+    assertThrows(Exception.class, () -> {
       sendGetByIdRequest(1L);
     });
   }
