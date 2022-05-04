@@ -20,10 +20,10 @@ jobs:
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots -DskipTests=false verify
       - uses: mate-academy/auto-approve-action@v2
-        if: ${{ github.event.push && success() }}
+        if: ${{ github.event.push && job.status == 'success' }}
         with:
           github-token: ${{ github.token }}
       - uses: mate-academy/auto-reject-action@v2
-        if: ${{ github.event.push && failure() }}
+        if: ${{ github.event.push && job.status == 'failure' }}
         with:
           github-token: ${{ github.token }}
