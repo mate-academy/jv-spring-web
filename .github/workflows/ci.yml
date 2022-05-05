@@ -1,6 +1,6 @@
 name: Java CI
 
-on: [push, pull_request_target]
+on: [ push, pull_request_target ]
 
 jobs:
   build:
@@ -19,12 +19,16 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots -DskipTests=false verify
-      - uses: mate-academy/auto-approve-action@v2
-        if: ${{ github.event.pull_request && success() }}
-        with:
-          github-token: ${{ github.token }}
-      - uses: mate-academy/auto-reject-action@v2
-        if: ${{ github.event.pull_request && failure() }}
-        with:
-          github-token: ${{ github.token }}
+
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.push == 'success' }}
+    steps:
+      - run: echo 'The triggering workflow passed'
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.push == 'failure' }}
+    steps:
+      - run: echo 'The triggering workflow failed'
+
 
