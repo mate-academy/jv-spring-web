@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
 import java.util.List;
+
+import javassist.NotFoundException;
 import mate.academy.spring.config.AppConfig;
 import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
@@ -56,7 +58,7 @@ public class UserControllerTest {
 
   @Test
   public void get_NonExistentUser_notOk() {
-    assertThrows(Exception.class, () -> {
+    assertThrows(NotFoundException.class, () -> {
       sendGetByIdRequest(1L);
     });
   }
