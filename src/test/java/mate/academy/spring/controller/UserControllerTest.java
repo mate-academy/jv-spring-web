@@ -1,9 +1,14 @@
 package mate.academy.spring.controller;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static java.util.Objects.nonNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import mate.academy.spring.config.AppConfig;
 import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
@@ -22,11 +27,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.util.NestedServletException;
-
-import static java.util.Objects.nonNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { AppConfig.class })
@@ -56,7 +56,7 @@ public class UserControllerTest {
   }
 
   @Test
-  public void get_NonExistentUser_notOk() throws Exception {
+  public void get_NonExistentUser_notOk() {
     assertThrows(NestedServletException.class, () -> {
       sendGetByIdRequest(1L);
     });
@@ -74,14 +74,6 @@ public class UserControllerTest {
     }
   }
 
-  private UserResponseDto sendGetByIdRequest(long id) throws Exception {
-    MvcResult mvcResult = mockMvc
-        .perform(MockMvcRequestBuilders.get(BASE_ENDPOINT + "/" + id))
-        .andReturn();
-    String content = mvcResult.getResponse().getContentAsString();
-    return objectMapper.readValue(content, new TypeReference<>() {});
-  }
-
   @Test
   public void getAll_NoUsers_Ok() throws Exception {
     int expected = 0;
@@ -96,6 +88,14 @@ public class UserControllerTest {
     List<UserResponseDto> actualUsers = getAllUsers();
     assertEquals(injectedUsers.size(), actualUsers.size());
     assertTrue(validUsers(actualUsers));
+  }
+
+  private UserResponseDto sendGetByIdRequest(long id) throws Exception {
+    MvcResult mvcResult = mockMvc
+        .perform(MockMvcRequestBuilders.get(BASE_ENDPOINT + "/" + id))
+        .andReturn();
+    String content = mvcResult.getResponse().getContentAsString();
+    return objectMapper.readValue(content, new TypeReference<>() {});
   }
 
   private boolean validUsers(List<UserResponseDto> actualUsers) {
