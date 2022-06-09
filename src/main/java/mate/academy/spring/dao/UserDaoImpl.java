@@ -17,7 +17,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void add(User user) {
+    public User add(User user) {
         Transaction transaction = null;
         Session session = null;
         try {
@@ -35,6 +35,8 @@ public class UserDaoImpl implements UserDao {
                 session.close();
             }
         }
+
+        return user;
     }
 
     @Override
