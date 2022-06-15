@@ -31,12 +31,12 @@ public class UserController {
         userJohn.setLastName("Doe");
         userService.add(userJohn);
         User userEmily = new User();
-        userJohn.setFirstName("Emily");
-        userJohn.setLastName("Stone");
+        userEmily.setFirstName("Emily");
+        userEmily.setLastName("Stone");
         userService.add(userEmily);
         User userHugh = new User();
-        userJohn.setFirstName("Hugh");
-        userJohn.setLastName("Dane");
+        userHugh.setFirstName("Hugh");
+        userHugh.setLastName("Dane");
         userService.add(userHugh);
         return "Users are injected!";
     }
