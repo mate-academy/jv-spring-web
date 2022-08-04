@@ -36,9 +36,9 @@ public class UserController {
 
     @GetMapping("/inject")
     public String injectMockData() {
-        User firstUser = new User("Alice", "Smile");
-        User secondUser = new User("Bob", "Small");
-        User thirdUser = new User("Jack", "Tall");
+        User firstUser = new User("John", "Doe");
+        User secondUser = new User("Emily", "Stone");
+        User thirdUser = new User("Hugh", "Dane");
         userService.add(firstUser);
         userService.add(secondUser);
         userService.add(thirdUser);
