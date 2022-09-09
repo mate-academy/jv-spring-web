@@ -28,7 +28,7 @@ public class UserResponseDto {
         return lastName;
     }
 
-    public void (String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 }
