@@ -22,7 +22,7 @@ public class UserController {
         this.userDtoMapper = userDtoMapper;
     }
 
-    @GetMapping("/inject ")
+    @GetMapping("/inject")
     public String injectUsersToDb() {
         userService.add(new User("John", "Doe"));
         userService.add(new User("Emily", "Stone"));
@@ -30,7 +30,7 @@ public class UserController {
         return "Users are injected!";
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userDtoMapper::parse)
