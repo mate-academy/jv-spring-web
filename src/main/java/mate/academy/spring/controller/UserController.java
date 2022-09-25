@@ -27,18 +27,18 @@ public class UserController {
     @GetMapping("/inject")
     public String inject() {
         User firstUser = new User();
-        firstUser.setFirstName("Abram");
-        firstUser.setLastName("Oganesyan");
+        firstUser.setFirstName("John");
+        firstUser.setLastName("Doe");
         userService.add(firstUser);
 
         User secondUser = new User();
-        secondUser.setFirstName("Gogi");
-        secondUser.setLastName("Gogishvilly");
+        secondUser.setFirstName("Emily");
+        secondUser.setLastName("Stone");
         userService.add(secondUser);
 
         User thirdUser = new User();
-        thirdUser.setFirstName("Moysha");
-        thirdUser.setLastName("Katsman");
+        thirdUser.setFirstName("Hugh");
+        thirdUser.setLastName("Dane");
         userService.add(thirdUser);
         return "Users are injected!";
     }
@@ -48,7 +48,7 @@ public class UserController {
         return userDtoMapper.parse(userService.get(userId));
     }
 
-    @GetMapping("/")
+    @GetMapping
     List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userDtoMapper::parse)
