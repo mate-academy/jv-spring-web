@@ -26,15 +26,15 @@ public class UserController {
     public String userAdd() {
         User userJohn = new User();
         userJohn.setFirstName("John");
-        userJohn.setFirstName("Doe");
+        userJohn.setLastName("Doe");
 
         User userEmily = new User();
         userEmily.setFirstName("Emily");
-        userEmily.setFirstName("Stone");
+        userEmily.setLastName("Stone");
 
         User userHugh = new User();
         userHugh.setFirstName("Hugh");
-        userHugh.setFirstName("Dane");
+        userHugh.setLastName("Dane");
 
         userService.add(userJohn);
         userService.add(userEmily);
