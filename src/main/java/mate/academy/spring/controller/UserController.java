@@ -22,14 +22,7 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @GetMapping
-    public List<UserResponseDto> getAll() {
-        return userService.getAll().stream()
-                .map(userMapper::parseToDto)
-                .collect(Collectors.toList());
-    }
-
-    @GetMapping(name = "/inject")
+    @GetMapping("/inject")
     public String injectData() {
         User john = new User();
         john.setFirstName("John");
@@ -48,8 +41,15 @@ public class UserController {
         return "Users are injected!";
     }
 
-    @GetMapping(name = "/{userId}")
+    @GetMapping("/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
         return userMapper.parseToDto(userService.get(userId));
+    }
+
+    @GetMapping
+    public List<UserResponseDto> getAll() {
+        return userService.getAll().stream()
+                .map(userMapper::parseToDto)
+                .collect(Collectors.toList());
     }
 }
