@@ -1,9 +1,12 @@
-package mate.academy.spring.model.dto;
+package mate.academy.spring.dto;
 
 public class UserResponseDto {
     private Long id;
     private String firstName;
     private String lastName;
+
+    public UserResponseDto() {
+    }
 
     public Long getId() {
         return id;
