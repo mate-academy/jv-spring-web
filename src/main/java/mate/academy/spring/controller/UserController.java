@@ -1,6 +1,7 @@
 package mate.academy.spring.controller;
 
-import mate.academy.spring.dao.UserDao;
+import java.util.List;
+import java.util.stream.Collectors;
 import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.mapper.UserDtoMapper;
 import mate.academy.spring.model.User;
@@ -10,9 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping//проверка без литерала тоже будет работать или нет
@@ -55,6 +53,4 @@ public class UserController {
                 .map(dtoMapper::getDto)
                 .collect(Collectors.toList());
     }
-
-
 }
