@@ -42,7 +42,7 @@ public class UserController {
         userService.add(hugh);
     }
 
-    @GetMapping("/users/{userId}")
+    @GetMapping("/users/{id}")
     public UserResponseDto getUserById(@PathVariable Long id) {
         return dtoMapper.getDto(userService.get(id));
     }
