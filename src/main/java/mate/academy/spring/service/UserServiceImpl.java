@@ -1,9 +1,8 @@
-package mate.academy.spring.service.impl;
+package mate.academy.spring.service;
 
 import java.util.List;
 import mate.academy.spring.dao.UserDao;
 import mate.academy.spring.model.User;
-import mate.academy.spring.service.UserService;
 import org.springframework.stereotype.Service;
 
 @Service
