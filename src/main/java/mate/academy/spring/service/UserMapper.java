@@ -5,7 +5,7 @@ import mate.academy.spring.model.User;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserDtoMapper {
+public class UserMapper {
     public UserResponseDto getDto(User user) {
         UserResponseDto responseDto = new UserResponseDto();
         responseDto.setId(user.getId());
