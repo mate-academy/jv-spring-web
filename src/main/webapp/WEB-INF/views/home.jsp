@@ -6,5 +6,9 @@
 <body>
     <h1>Home</h1>
     <a href="index">Index</a>
+    <br>
+    <a href="users">users</a>
+    <br>
+    <a href="users/inject">inject users</a>
 </body>
 </html>
