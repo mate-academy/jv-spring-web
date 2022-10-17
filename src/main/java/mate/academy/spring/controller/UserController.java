@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    UserService userService;
-    UserDtoMapper userDtoMapper;
+    private UserService userService;
+    private UserDtoMapper userDtoMapper;
 
     @Autowired
     public UserController(UserService userService, UserDtoMapper userDtoMapper) {
@@ -28,22 +28,17 @@ public class UserController {
     public String inject() {
         User user1 = new User();
         user1.setFirstName("John");
-        user1.setFirstName("Doe");
+        user1.setLastName("Doe");
         userService.add(user1);
         User user2 = new User();
         user2.setFirstName("Emily");
-        user2.setFirstName("Stone");
+        user2.setLastName("Stone");
         userService.add(user2);
         User user3 = new User();
         user3.setFirstName("Hugh");
-        user3.setFirstName("Dane");
+        user3.setLastName("Dane");
         userService.add(user3);
         return "Users are injected!";
-    }
-
-    @GetMapping("/index/")
-    public String index() {
-        return "index";
     }
 
     @GetMapping("/{userId}")
@@ -51,7 +46,7 @@ public class UserController {
         return userDtoMapper.parse(userService.get(userId));
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(u -> userDtoMapper.parse(u))
