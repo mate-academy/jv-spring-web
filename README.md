@@ -1,7 +1,7 @@
 # Spring MVC
 
 1. Configure Spring MVC and DB(in `db.properties` file). Adding Spring dependencies use the same version for each of them.
-For this purpose you can use property `spring.version`.
+For this purpose you can use property `spring.version`. +
 3. Create UserResponseDto with all fields of User in `dto` package. 
 Also, you should add default constructor explicitly if you'll decide to create new ones. 
 4. Create UserController in ``controller`` package where you should
