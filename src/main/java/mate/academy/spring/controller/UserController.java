@@ -22,19 +22,21 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @GetMapping("/inject")
+    @GetMapping("/users/inject")
     public String injectMockData() {
-        User bob = new User();
-        bob.setFirstName("Bob");
-        bob.setLastName("Howard");
+        User john = new User();
+        john.setFirstName("John");
+        john.setLastName("Doe");
+        User emily = new User();
+        emily.setFirstName("Emily");
+        emily.setLastName("Stone");
+        User hugh = new User();
+        hugh.setFirstName("Hugh");
+        hugh.setLastName("Dane");
 
-        User serhiy = new User();
-        serhiy.setLastName("Sternenko");
-        serhiy.setFirstName("Serhiy");
-
-        User alice = new User();
-        alice.setFirstName("Alice");
-        alice.setLastName("InChains");
+        userService.add(john);
+        userService.add(emily);
+        userService.add(hugh);
         return "Users are injected!";
     }
 
