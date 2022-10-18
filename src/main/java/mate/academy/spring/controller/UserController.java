@@ -48,4 +48,5 @@ public class UserController {
     public UserResponseDto get(@PathVariable Long userId) {
         return userMapper.parse(userService.get(userId));
     }
+
 }
