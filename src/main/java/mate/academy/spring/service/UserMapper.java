@@ -1,7 +1,7 @@
 package mate.academy.spring.service;
 
+import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
-import mate.academy.spring.model.dto.UserResponseDto;
 import org.springframework.stereotype.Component;
 
 @Component
