@@ -17,7 +17,7 @@
         <maven.checkstyle.plugin.configLocation>
             https://raw.githubusercontent.com/mate-academy/style-guides/master/java/checkstyle.xml
         </maven.checkstyle.plugin.configLocation>
-        <spring.version>5.3.17</spring.version>
+        <spring.version>5.3.23</spring.version>
         <skipTests>true</skipTests>
     </properties>
 
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.22</version>
+            <version>8.0.29</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
