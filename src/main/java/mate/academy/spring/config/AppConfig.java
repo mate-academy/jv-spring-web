@@ -40,9 +40,10 @@ public class AppConfig {
         properties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
         properties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-
         factoryBean.setHibernateProperties(properties);
+
         factoryBean.setAnnotatedClasses(User.class);
+
         return factoryBean;
     }
 }

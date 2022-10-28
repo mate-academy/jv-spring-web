@@ -41,15 +41,19 @@ public class UserController {
         User johnDoe = new User();
         johnDoe.setFirstName("John");
         johnDoe.setLastName("Doe");
+
         User emilyStone = new User();
         emilyStone.setFirstName("Emily");
         emilyStone.setLastName("Stone");
+
         User hughDane = new User();
         hughDane.setFirstName("Hugh");
         hughDane.setLastName("Dane");
+
         userService.add(johnDoe);
         userService.add(emilyStone);
         userService.add(hughDane);
+
         return "Users are injected!";
     }
 }
