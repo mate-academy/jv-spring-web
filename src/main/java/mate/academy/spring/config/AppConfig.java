@@ -26,7 +26,7 @@ public class AppConfig {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(env.getProperty("db.driver"));
         dataSource.setUrl(env.getProperty("db.url"));
-        dataSource.setUsername(env.getProperty("db.user"));
+        dataSource.setUsername(env.getProperty("db.username"));
         dataSource.setPassword(env.getProperty("db.password"));
         return dataSource;
     }
@@ -43,6 +43,7 @@ public class AppConfig {
 
         factoryBean.setHibernateProperties(properties);
         factoryBean.setAnnotatedClasses(User.class);
+        factoryBean.setPackagesToScan("mate.academy.spring.model");
         return factoryBean;
     }
 }
