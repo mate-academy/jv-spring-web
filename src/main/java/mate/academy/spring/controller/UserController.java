@@ -1,23 +1,46 @@
 package mate.academy.spring.controller;
 
+import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import mate.academy.spring.service.UserService;
+import mate.academy.spring.service.mapper.UserDtoMapper;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import java.util.List;
+import java.util.stream.Collectors;
+
+@RestController
+@RequestMapping("/users")
 public class UserController {
+    private final UserService userService;
+    private final UserDtoMapper userDtoMapper;
 
-    @GetMapping("/users")
-    public String testJsp(Model model) {
-        model.addAttribute("message", "Test JSP.");
-        return "users";
+
+    public UserController(UserService userService, UserDtoMapper userDtoMapper) {
+        this.userService = userService;
+        this.userDtoMapper = userDtoMapper;
     }
 
-    @ResponseBody
-    @GetMapping("/get-user")
-    public User testJsp() {
-        return new User(1L, "John", "Doe");
+    @GetMapping("/inject")
+    public String injectUsers() {
+        userService.add(new User(1L, "John", "Dou"));
+        userService.add(new User(1L, "Emily", "Stone"));
+        userService.add(new User(1L, "Hugh", "Dane"));
+
+        return "Users are injected!";
+    }
+
+    @GetMapping("/{userId}")
+    public UserResponseDto get(@PathVariable Long userId) {
+        return userDtoMapper.parse(userService.get(userId));
+    }
+
+    @GetMapping("")
+    public List<UserResponseDto> getAll() {
+        return userService.getAll().stream()
+                .map(userDtoMapper::parse).collect(Collectors.toList());
     }
 }
