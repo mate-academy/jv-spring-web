@@ -1,5 +1,7 @@
 package mate.academy.spring.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
 import mate.academy.spring.service.UserService;
@@ -9,15 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @RestController
 @RequestMapping("/users")
 public class UserController {
     private final UserService userService;
     private final UserDtoMapper userDtoMapper;
-
 
     public UserController(UserService userService, UserDtoMapper userDtoMapper) {
         this.userService = userService;
@@ -26,7 +24,7 @@ public class UserController {
 
     @GetMapping("/inject")
     public String injectUsers() {
-        userService.add(new User(1L, "John", "Dou"));
+        userService.add(new User(1L, "John", "Doe"));
         userService.add(new User(1L, "Emily", "Stone"));
         userService.add(new User(1L, "Hugh", "Dane"));
 
