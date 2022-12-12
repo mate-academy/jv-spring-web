@@ -1,8 +1,8 @@
 package mate.academy.spring.service.mapper;
 
 import mate.academy.spring.model.User;
-import mate.academy.spring.model.dto.UserRequestDto;
-import mate.academy.spring.model.dto.UserResponseDto;
+import mate.academy.spring.dto.UserRequestDto;
+import mate.academy.spring.dto.UserResponseDto;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,4 +1,4 @@
-package mate.academy.spring.model.dto;
+package mate.academy.spring.dto;
 
 public class UserRequestDto {
     private String firstName;
