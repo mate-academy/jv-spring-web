@@ -22,7 +22,7 @@ public class UserController {
         this.userDtoMapper = userDtoMapper;
     }
 
-    @GetMapping("/inject")
+    @GetMapping("/users/inject")
     public String inject() {
         User john = new User();
         john.setFirstName("John");
