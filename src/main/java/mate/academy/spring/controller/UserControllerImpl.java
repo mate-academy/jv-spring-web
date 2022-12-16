@@ -1,41 +1,59 @@
 package mate.academy.spring.controller;
 
-import mate.academy.spring.dao.UserDao;
-import mate.academy.spring.model.dto.UserResponseDto;
-import mate.academy.spring.service.mapper.UserDtoMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.util.List;
 import java.util.stream.Collectors;
+import mate.academy.spring.model.User;
+import mate.academy.spring.model.dto.UserResponseDto;
+import mate.academy.spring.service.UserService;
+import mate.academy.spring.service.mapper.UserDtoMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping("/users")
+@RestController
 public class UserControllerImpl implements UserController {
-    private UserDao userDao;
+    private UserService userService;
     private UserDtoMapper userDtoMapper;
 
     @Autowired
-    public UserControllerImpl(UserDao userDao, UserDtoMapper userDtoMapper) {
-        this.userDao = userDao;
+    public UserControllerImpl(UserService userService, UserDtoMapper userDtoMapper) {
+        this.userService = userService;
         this.userDtoMapper = userDtoMapper;
     }
 
-    @Override
-    @GetMapping("/{userId}")
-    @ResponseBody
-    public UserResponseDto get(@PathVariable Long userId) {
-        return null;
+    @GetMapping("/users/inject")
+    public String bootstrapData() {
+        User john = new User();
+        john.setFirstName("John");
+        john.setLastName("Doe");
+        userService.add(john);
+
+        User emily = new User();
+        emily.setFirstName("Emily");
+        emily.setLastName("Stone");
+        userService.add(emily);
+
+        User hugh = new User();
+        hugh.setFirstName("Hugh");
+        hugh.setLastName("Dane");
+        userService.add(hugh);
+
+        return "Users are injected!";
     }
 
     @Override
-    @GetMapping("/")
+    @GetMapping("/users/{userId}")
+    @ResponseBody
+    public UserResponseDto get(@PathVariable Long userId) {
+        return userDtoMapper.parse(userService.get(userId));
+    }
+
+    @Override
+    @GetMapping("/users")
     public List<UserResponseDto> getAll() {
-        return userDao.getAll().stream()
+        return userService.getAll().stream()
                 .map(user -> userDtoMapper.parse(user))
                 .collect(Collectors.toList());
     }
