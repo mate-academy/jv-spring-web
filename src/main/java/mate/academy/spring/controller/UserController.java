@@ -27,14 +27,14 @@ public class UserController {
         return dtoMapper.parse(userService.get(userId));
     }
 
-    @GetMapping("/users")
+    @GetMapping
     public List<UserResponseDto> getAllUsers() {
         return userService.getAll().stream()
                 .map(dtoMapper::parse)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/useres/inject")
+    @GetMapping("/inject")
     public String injectUsers() {
         User john = new User();
         john.setId(1L);
