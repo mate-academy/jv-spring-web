@@ -33,11 +33,11 @@ public class UserResponseDto {
 
     @Override
     public String toString() {
-        return "UserResponseDto{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+        return "UserResponseDto{"
+                + "id=" + id
+                + ", firstName='" + firstName + '\''
+                + ", lastName='" + lastName + '\''
+                + '}';
     }
 
     @Override
@@ -49,7 +49,9 @@ public class UserResponseDto {
             return false;
         }
         UserResponseDto that = (UserResponseDto) o;
-        return Objects.equals(id, that.id) && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName);
+        return Objects.equals(id, that.id)
+                && Objects.equals(firstName, that.firstName)
+                && Objects.equals(lastName, that.lastName);
     }
 
     @Override
