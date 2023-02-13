@@ -7,11 +7,9 @@ import mate.academy.spring.service.UserMapper;
 import mate.academy.spring.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/users")
 public class UserController {
     private final UserService userService;
     private final UserMapper userMapper;
@@ -21,7 +19,7 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @GetMapping("/inject")
+    @GetMapping("/users/inject")
     public String inject() {
         UserResponseDto userDto1 = new UserResponseDto();
         userDto1.setFirstName("John");
@@ -38,12 +36,16 @@ public class UserController {
         return "Users are injected!";
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/users/{userId}")
     UserResponseDto get(@PathVariable Long userId) {
-        return userMapper.parse(userService.get(userId));
+        try {
+            return userMapper.parse(userService.get(userId));
+        } catch (Exception e) {
+            throw new RuntimeException("User doesn't exist");
+        }
     }
 
-    @GetMapping("/")
+    @GetMapping("/users")
     List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userMapper::parse)
