@@ -1,48 +1,44 @@
 package mate.academy.spring.config;
 
-import java.util.Properties;
-import javax.sql.DataSource;
+import java.util.List;
+import java.util.stream.Collectors;
+import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
-import org.apache.commons.dbcp2.BasicDataSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import mate.academy.spring.service.UserDtoMapper;
+import mate.academy.spring.service.UserService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Configuration
-@PropertySource("classpath:db.properties")
-@ComponentScan(basePackages = "mate.academy.spring")
+@RestController
+@RequestMapping("/users")
 public class AppConfig {
-    private final Environment env;
+    private final UserService userService;
+    private final UserDtoMapper userMapper;
 
-    public AppConfig(Environment env) {
-        this.env = env;
+    public AppConfig(UserService userService, UserDtoMapper userMapper) {
+        this.userService = userService;
+        this.userMapper = userMapper;
     }
 
-    @Bean
-    public DataSource getDataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(env.getProperty("db.driver"));
-        dataSource.setUrl(env.getProperty("db.url"));
-        dataSource.setUsername(env.getProperty("db.user"));
-        dataSource.setPassword(env.getProperty("db.password"));
-        return dataSource;
+    @GetMapping
+    public List<UserResponseDto> getAll() {
+        return userService.getAll().stream()
+                .map(userMapper::parse)
+                .collect(Collectors.toList());
     }
 
-    @Bean
-    public LocalSessionFactoryBean getSessionFactory() {
-        LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
-        factoryBean.setDataSource(getDataSource());
+    @GetMapping("/{userId}")
+    UserResponseDto get(@PathVariable Long userId) {
+        return userMapper.parse(userService.get(userId));
+    }
 
-        Properties properties = new Properties();
-        properties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-        properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
-        properties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-
-        factoryBean.setHibernateProperties(properties);
-        factoryBean.setAnnotatedClasses(User.class);
-        return factoryBean;
+    @GetMapping("/inject")
+    public String index() {
+        userService.add(new User("John", "Doe"));
+        userService.add(new User("Emily", "Stone"));
+        userService.add(new User("Hugh", "Dane"));
+        return "Users are injected!";
     }
 }

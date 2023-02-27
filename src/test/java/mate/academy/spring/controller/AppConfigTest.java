@@ -32,7 +32,7 @@ import org.springframework.web.util.NestedServletException;
 @ContextConfiguration(classes = { AppConfig.class })
 @WebAppConfiguration
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-public class UserControllerTest {
+public class AppConfigTest {
   private static final String BASE_ENDPOINT = "/users";
   private static final String EXPECTED_INJECT_RESPONSE = "Users are injected!";
   private static ObjectMapper objectMapper;
