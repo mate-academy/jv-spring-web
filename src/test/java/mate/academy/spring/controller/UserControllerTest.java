@@ -10,7 +10,7 @@ import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import mate.academy.spring.config.AppConfig;
-import mate.academy.spring.dto.UserResponseDto;
+import mate.academy.spring.model.dto.UserResponseDto;
 import mate.academy.spring.model.User;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -92,8 +92,8 @@ public class UserControllerTest {
 
   private UserResponseDto sendGetByIdRequest(long id) throws Exception {
     MvcResult mvcResult = mockMvc
-        .perform(MockMvcRequestBuilders.get(BASE_ENDPOINT + "/" + id))
-        .andReturn();
+            .perform(MockMvcRequestBuilders.get(BASE_ENDPOINT + "/" + id))
+            .andReturn();
     String content = mvcResult.getResponse().getContentAsString();
     return objectMapper.readValue(content, new TypeReference<>() {});
   }
@@ -103,8 +103,8 @@ public class UserControllerTest {
     for (User injectedUser : injectedUsers) {
       for (UserResponseDto user : actualUsers) {
         if (nonNull(user.getId())
-            && user.getFirstName().equals(injectedUser.getFirstName())
-            && user.getLastName().equals(injectedUser.getLastName())) {
+                && user.getFirstName().equals(injectedUser.getFirstName())
+                && user.getLastName().equals(injectedUser.getLastName())) {
           validUsersNumber++;
           break;
         }
@@ -115,15 +115,15 @@ public class UserControllerTest {
 
   private String sendInjectRequest() throws Exception {
     MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(
-        BASE_ENDPOINT + "/inject"
+            BASE_ENDPOINT + "/inject"
     )).andReturn();
     return mvcResult.getResponse().getContentAsString();
   }
 
   private List<UserResponseDto> getAllUsers() throws Exception {
     MvcResult mvcResult = mockMvc
-        .perform(MockMvcRequestBuilders.get(BASE_ENDPOINT))
-        .andReturn();
+            .perform(MockMvcRequestBuilders.get(BASE_ENDPOINT))
+            .andReturn();
     String content = mvcResult.getResponse().getContentAsString();
     return objectMapper.readValue(content, new TypeReference<>() {});
   }
