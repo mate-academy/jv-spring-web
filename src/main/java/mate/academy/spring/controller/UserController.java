@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/users/inject")
-    public String injectmockData() {
+    public String injectMockData() {
         User userJohn = new User();
         userJohn.setFirstName("John");
         userJohn.setLastName("Doe");
