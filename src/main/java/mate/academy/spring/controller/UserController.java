@@ -42,12 +42,16 @@ public class UserController {
         john.setLastName("Doe");
 
         User emily = new User();
-        emily.setFirstName("Emily ");
+        emily.setFirstName("Emily");
         emily.setLastName("Stone");
 
         User hugh = new User();
         hugh.setFirstName("Hugh");
         hugh.setLastName("Dane");
+
+        userService.add(john);
+        userService.add(emily);
+        userService.add(hugh);
 
         return "Users are injected!";
     }
