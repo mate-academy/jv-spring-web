@@ -8,6 +8,7 @@ import mate.academy.spring.service.UserMapper;
 import mate.academy.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,11 +43,11 @@ public class UserController {
         userService.add(userE);
         userService.add(userH);
 
-        return "Done!";
+        return "Users are injected!";
     }
 
-    @GetMapping("/users{userId}")
-    public UserResponseDto get(Long userId) {
+    @GetMapping("/users/{userId}")
+    public UserResponseDto get(@PathVariable Long userId) {
         return userMapper.parse(userService.get(userId));
     }
 
