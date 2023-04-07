@@ -41,7 +41,7 @@ public class UserController {
         userService.add(user1);
         userService.add(user2);
         userService.add(user3);
-        return "Users are added.";
+        return "Users are injected!";
     }
 
     @GetMapping("/{id}")
