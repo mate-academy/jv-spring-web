@@ -36,21 +36,21 @@ public class UserController {
 
     @GetMapping("/inject")
     public String injectMockData() {
-        User bob = new User();
-        bob.setFirstName("Bob");
-        bob.setLastName("Marley");
-        userService.add(bob);
-
         User john = new User();
         john.setFirstName("John");
-        john.setLastName("Smith");
+        john.setLastName("Doe");
         userService.add(john);
 
-        User alice = new User();
-        alice.setFirstName("Alice");
-        alice.setLastName("Eve");
-        userService.add(alice);
+        User emily = new User();
+        emily.setFirstName("Emily");
+        emily.setLastName("Stone");
+        userService.add(emily);
 
-        return "All users are injected!";
+        User hugh = new User();
+        hugh.setFirstName("Hugh");
+        hugh.setLastName("Dane");
+        userService.add(hugh);
+
+        return "Users are injected!";
     }
 }
