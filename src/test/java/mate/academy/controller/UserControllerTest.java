@@ -1,4 +1,4 @@
-package mate.academy.spring.controller;
+package mate.academy.controller;
 
 import static java.util.Objects.nonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import mate.academy.spring.config.AppConfig;
+import mate.academy.spring.config.WebConfig;
 import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
 import org.junit.jupiter.api.BeforeAll;
@@ -29,7 +29,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.util.NestedServletException;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = { AppConfig.class })
+@ContextConfiguration(classes = { WebConfig.class })
 @WebAppConfiguration
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class UserControllerTest {
