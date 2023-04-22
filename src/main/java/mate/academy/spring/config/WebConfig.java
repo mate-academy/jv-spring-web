@@ -14,12 +14,11 @@ import org.springframework.web.servlet.view.JstlView;
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean
-    public InternalResourceViewResolver getResolver() {
-        InternalResourceViewResolver internalResourceViewResolver =
-                new InternalResourceViewResolver();
-        internalResourceViewResolver.setViewClass(JstlView.class);
-        internalResourceViewResolver.setPrefix("/WEB-INF/views");
-        internalResourceViewResolver.setSuffix("/jsp");
-        return internalResourceViewResolver;
+    public InternalResourceViewResolver resolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setViewClass(JstlView.class);
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+        return resolver;
     }
 }
