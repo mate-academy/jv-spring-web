@@ -24,7 +24,9 @@ public class UserController {
 
     @GetMapping("")
     public List<UserResponseDto> getAll() {
-        return userService.getAll().stream().map(userDtoMapper::parse).toList();
+        return userService.getAll().stream()
+                .map(userDtoMapper::parse)
+                .toList();
     }
 
     @GetMapping("/{id}")
