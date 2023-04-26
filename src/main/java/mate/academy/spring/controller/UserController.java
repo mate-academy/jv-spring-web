@@ -36,21 +36,21 @@ public class UserController {
 
     @GetMapping("/inject")
     public String index() {
-        User vasia = new User();
-        vasia.setFirstName("Vasia");
-        vasia.setLastName("Vasilchenko");
+        User john = new User();
+        john.setFirstName("John");
+        john.setLastName("Doe");
 
-        User marucia = new User();
-        marucia.setFirstName("Marucia");
-        marucia.setLastName("Marucieva");
+        User emily = new User();
+        emily.setFirstName("Emily");
+        emily.setLastName("Stone");
 
-        User petia = new User();
-        petia.setFirstName("Petia");
-        petia.setLastName("Petrov");
+        User hugh = new User();
+        hugh.setFirstName("Hugh");
+        hugh.setLastName("Dane");
 
-        userService.add(vasia);
-        userService.add(marucia);
-        userService.add(vasia);
+        userService.add(john);
+        userService.add(emily);
+        userService.add(hugh);
         return "Users are injected!";
     }
 }
