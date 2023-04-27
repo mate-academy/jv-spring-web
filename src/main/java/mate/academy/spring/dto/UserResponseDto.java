@@ -5,15 +5,6 @@ public class UserResponseDto {
     private String firstName;
     private String lastName;
 
-    public UserResponseDto() {
-    }
-
-    public UserResponseDto(Long id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
     public Long getId() {
         return id;
     }
@@ -36,14 +27,5 @@ public class UserResponseDto {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    @Override
-    public String toString() {
-        return "UserResponseDto{"
-                + "id=" + id
-                + ", firstName='" + firstName + '\''
-                + ", lastName='" + lastName + '\''
-                + '}';
     }
 }
