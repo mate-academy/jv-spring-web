@@ -18,6 +18,6 @@ public class WebConfig implements WebMvcConfigurer {
         viewResolver.setViewClass(JstlView.class);
         viewResolver.setPrefix("WEB-INF/views/");
         resolver().setSuffix(".jsp");
-        return resolver();
+        return viewResolver;
     }
 }
