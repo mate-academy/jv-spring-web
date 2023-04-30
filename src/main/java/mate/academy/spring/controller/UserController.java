@@ -48,6 +48,6 @@ public class UserController {
         user3.setFirstName("Hugh");
         user3.setLastName("Dane");
         userService.add(user3);
-        return "Done";
+        return "Users are injected!";
     }
 }
