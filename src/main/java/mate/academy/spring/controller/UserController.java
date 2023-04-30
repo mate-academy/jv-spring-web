@@ -1,5 +1,6 @@
 package mate.academy.spring.controller;
 
+import java.util.List;
 import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
 import mate.academy.spring.service.UserMapper;
@@ -9,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/users")
