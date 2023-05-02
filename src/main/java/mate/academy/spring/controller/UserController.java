@@ -25,21 +25,21 @@ public class UserController {
         this.userDtoMapper = userDtoMapper;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
         return userDtoMapper.parse(userService.get(userId));
     }
 
-    @GetMapping("/users")
+    @GetMapping
     public List<UserResponseDto> getAllUsers() {
         return userService.getAll().stream()
                 .map(userDtoMapper::parse)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/users/inject")
+    @GetMapping("/inject")
     public String injectMockData() {
-        User userJohn = new User();
+        User userJohn = new User();;
         userJohn.setFirstName("John");
         userJohn.setLastName("Doe");
 
