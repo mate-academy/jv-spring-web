@@ -12,7 +12,9 @@ public class UserDtoMapper {
         userResponseDto.setFirstName(user.getFirstName());
         userResponseDto.setLastName(user.getLastName());
         return userResponseDto;
-
-
     }
+
+//    public User toModel(UserRequestDto requestDto){
+//
+//    }
 }
