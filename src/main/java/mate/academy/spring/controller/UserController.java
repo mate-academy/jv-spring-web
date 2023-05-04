@@ -6,7 +6,6 @@ import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
 import mate.academy.spring.service.UserService;
 import mate.academy.spring.service.mapper.UserDtoMapper;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,15 +30,18 @@ public class UserController {
                 .map(userDtoMapper::parse)
                 .collect(Collectors.toList());
     }
+
     @GetMapping("/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
         return userDtoMapper.parse(userService.get(userId));
     }
+
     @GetMapping("/index")
     public String index(Model model) {
         model.addAttribute("message", "Hello Dimon");
         return "Hello Dimon";
     }
+
     @GetMapping("/inject")
     public String injectMockData() {
         User john = new User();
