@@ -34,7 +34,7 @@ public class UserController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/usersinject")
+    @GetMapping("/usersInject")
     public String injectUsers() {
         User john = new User();
         john.setFirstName("John");
