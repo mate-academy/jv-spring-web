@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @PropertySource("classpath:db.properties")
@@ -29,6 +31,14 @@ public class AppConfig {
         dataSource.setUsername(env.getProperty("db.user"));
         dataSource.setPassword(env.getProperty("db.password"));
         return dataSource;
+    }
+    @Bean
+    public InternalResourceViewResolver resolver() {
+        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+        internalResourceViewResolver.setViewClass(JstlView.class);
+        internalResourceViewResolver.setPrefix("/WEB-INF/views/");
+        internalResourceViewResolver.setSuffix(".jsp");
+        return internalResourceViewResolver;
     }
 
     @Bean

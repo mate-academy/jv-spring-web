@@ -17,7 +17,7 @@ Also, you should add default constructor explicitly if you'll decide to create n
 
 In response let's return the message ``Users are injected!``
 
-4. Create a `UserMapper` in `service` package, where we're gonna perform all mapping to/from DTOs in order to stick with SRP. Use will use this mapper on the controller layer.
+4. Create a `UserMapper` in `service` package, where we're going to perform all mapping to/from DTOs in order to stick with SRP. Use will use this mapper on the controller layer.
 
 4. Run tests with command `mvn -DskipTests=false clean package`.
 
