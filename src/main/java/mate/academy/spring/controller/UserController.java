@@ -6,6 +6,7 @@ import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
 import mate.academy.spring.service.UserService;
 import mate.academy.spring.service.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ public class UserController {
     private UserService userService;
     private UserMapper mapper;
 
+    @Autowired
     public UserController(UserService userService, UserMapper mapper) {
         this.userService = userService;
         this.mapper = mapper;
@@ -35,16 +37,16 @@ public class UserController {
     @GetMapping("/users/inject")
     public String injectData() {
         User slava = new User();
-        slava.setFirstName("slava");
-        slava.setLastName("sukhov");
+        slava.setFirstName("John");
+        slava.setLastName("Doe");
 
         User carolina = new User();
-        carolina.setFirstName("carolina");
-        carolina.setLastName("sukhova");
+        carolina.setFirstName("Emily");
+        carolina.setLastName("Stone");
 
         User anna = new User();
-        anna.setFirstName("anna");
-        anna.setLastName("sukhova");
+        anna.setFirstName("Hugh");
+        anna.setLastName("Dane");
 
         userService.add(slava);
         userService.add(carolina);
