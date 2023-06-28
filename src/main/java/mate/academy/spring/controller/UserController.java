@@ -4,9 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import mate.academy.spring.dto.UserResponseDto;
 import mate.academy.spring.model.User;
-import mate.academy.spring.service.mapper.UserMapper;
 import mate.academy.spring.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import mate.academy.spring.service.mapper.UserMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +17,6 @@ public class UserController {
     private final UserService userService;
     private final UserMapper userMapper;
 
-    @Autowired
     public UserController(UserService userService, UserMapper userMapper) {
         this.userService = userService;
         this.userMapper = userMapper;
@@ -26,24 +24,16 @@ public class UserController {
 
     @GetMapping("/inject")
     public String inject() {
-        User john = new User();
-        john.setFirstName("John");
-        john.setLastName("Doe");
+        User john = new User("John", "Doe");
         userService.add(john);
-
-        User emily = new User();
-        john.setFirstName("Emily");
-        john.setLastName("Stone");
+        User emily = new User("Emily", "Stone");
         userService.add(emily);
-
-        User hugh = new User();
-        john.setFirstName("Hugh");
-        john.setLastName("Stone");
+        User hugh = new User("Hugh", "Dane");
         userService.add(hugh);
         return "Users are injected!";
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userMapper::parse)
