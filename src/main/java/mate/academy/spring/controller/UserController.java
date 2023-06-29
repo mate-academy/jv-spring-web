@@ -24,19 +24,19 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    UserResponseDto get(@PathVariable Long userId) {
+    public UserResponseDto get(@PathVariable Long userId) {
         return userDtoMapper.parse(userService.get(userId));
     }
 
     @GetMapping
-    List<UserResponseDto> getAll() {
+    public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userDtoMapper::parse)
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/inject")
-    String injectMockData() {
+    public String injectMockData() {
         User john = new User("John", "Doe");
         User emily = new User("Emily", "Stone");
         User hugh = new User("Hugh", "Dane");
@@ -44,10 +44,5 @@ public class UserController {
         userService.add(emily);
         userService.add(hugh);
         return "Users are injected!";
-    }
-
-    @GetMapping("/index")
-    String index() {
-        return "index";
     }
 }
