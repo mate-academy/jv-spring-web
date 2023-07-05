@@ -13,6 +13,19 @@ public class User {
     private String firstName;
     private String lastName;
 
+    public User() {
+    }
+
+    public User(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public User(Long id, String firstName, String lastName) {
+        this(firstName, lastName);
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
