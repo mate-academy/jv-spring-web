@@ -22,7 +22,7 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @GetMapping("")
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userMapper::parse)
