@@ -12,4 +12,12 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @ComponentScan(basePackages = "mate.academy.spring.controller")
 public class WebConfig implements WebMvcConfigurer {
+    @Bean
+    public InternalResourceViewResolver resolver() {
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setViewClass(JstlView.class);
+        viewResolver.setPrefix("/WEB-INF/views");
+        viewResolver.setSuffix(".jsp");
+        return viewResolver;
+    }
 }
