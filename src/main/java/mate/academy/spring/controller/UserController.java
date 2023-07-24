@@ -22,35 +22,35 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @GetMapping()
+    @GetMapping("/{userId}")
+    public UserResponseDto get(@PathVariable Long userId) {
+        return userMapper.parse(userService.get(userId));
+    }
+
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.getAll().stream()
                 .map(userMapper::parse)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("{userId}")
-    public UserResponseDto get(@PathVariable Long id) {
-        return userMapper.parse(userService.get(id));
-    }
-
     @GetMapping("/inject")
-    public String inject() {
+    public String injectMockData() {
         User john = new User();
         john.setFirstName("John");
         john.setLastName("Doe");
-        userService.add(john);
 
         User emily = new User();
         emily.setFirstName("Emily");
         emily.setLastName("Stone");
-        userService.add(emily);
 
         User hugh = new User();
         hugh.setFirstName("Hugh");
         hugh.setLastName("Dane");
-        userService.add(hugh);
 
+        userService.add(john);
+        userService.add(emily);
+        userService.add(hugh);
         return "Users are injected!";
     }
 }
