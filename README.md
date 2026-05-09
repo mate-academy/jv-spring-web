@@ -22,3 +22,4 @@ In response let's return the message ``Users are injected!``
 4. Run tests with command `mvn -DskipTests=false clean package`.
 
 __You can check yourself using this__ [checklist](https://mate-academy.github.io/jv-program-common-mistakes/java-spring/web/java-spring-web)
+a
