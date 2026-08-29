@@ -13,6 +13,14 @@ public class User {
     private String firstName;
     private String lastName;
 
+    public User() {
+    }
+
+    public User(String fn, String ln) {
+        firstName = fn;
+        lastName = ln;
+    }
+
     public Long getId() {
         return id;
     }
@@ -39,9 +47,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{"
-            + "id=" + id
-            + ", firstName='" + firstName + '\''
-            + ", lastName='" + lastName + '\'' + '}';
+        return "User{" + "id=" + id 
+                + ", firstName='" + firstName 
+                + ", lastName='" + lastName + '}';
     }
 }
