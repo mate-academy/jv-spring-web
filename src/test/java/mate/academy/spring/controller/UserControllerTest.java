@@ -67,8 +67,8 @@ public class UserControllerTest {
     sendInjectRequest();
     List<UserResponseDto> users = getAllUsers();
     for (UserResponseDto expected : users) {
-      UserResponseDto actual = sendGetByIdRequest(expected.getId());
-      assertEquals(expected.getId(), actual.getId());
+      UserResponseDto actual = sendGetByIdRequest(expected.getUserId());
+      assertEquals(expected.getUserId(), actual.getUserId());
       assertEquals(expected.getFirstName(), actual.getFirstName());
       assertEquals(expected.getLastName(), actual.getLastName());
     }
@@ -102,7 +102,7 @@ public class UserControllerTest {
     int validUsersNumber = 0;
     for (User injectedUser : injectedUsers) {
       for (UserResponseDto user : actualUsers) {
-        if (nonNull(user.getId())
+        if (nonNull(user.getUserId())
             && user.getFirstName().equals(injectedUser.getFirstName())
             && user.getLastName().equals(injectedUser.getLastName())) {
           validUsersNumber++;
