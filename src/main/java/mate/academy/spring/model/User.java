@@ -4,14 +4,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
+
+    public User(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public User() {
+    }
 
     public Long getId() {
         return id;
@@ -39,9 +49,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{"
-            + "id=" + id
-            + ", firstName='" + firstName + '\''
-            + ", lastName='" + lastName + '\'' + '}';
+        return "User{" + "id=" + id + ", firstName='"
+                + firstName + '\'' + ", lastName='"
+                + lastName + '\'' + '}';
     }
 }
